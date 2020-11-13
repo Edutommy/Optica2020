@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+*{
+    font-family: 'Fredoka One', cursive;
+}
+
+.ancho-100 {
+    width: 100%;
+}
+
+i {
+    margin-top: 10px;
+}
+
+.redondo {
+    border-radius: 30px;
+}
+
+.input-field input:focus + label + i {
+    color: rgb(63, 146, 255) !important;
+}
+
+.input-field input:focus {
+    border-bottom: 1px solid rgb(63, 146, 255) !important;
+    box-shadow: 0 1px 0 0 rgb(63, 146, 255) !important;
+}
+
+.material-icons.md-blue {
+    color: rgba(63, 146, 255);
+}
+.material-icons.md-orange {
+    color: rgb(255, 153, 0);
+}
+
+.card {
+    text-align: center;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+body{
+    background-color: rgb(191, 245, 242);
+}
+
+
