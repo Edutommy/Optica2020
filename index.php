@@ -7,8 +7,9 @@ require_once("models/UsuarioModel.php");
 if (isset($_SESSION['usuario'])) {
     $model = new UsuarioModel();
     $usuario = $model->getAllUsuarios();
-}
 
+    print_r($usuario);
+}
 
 ?>
 
@@ -56,7 +57,7 @@ if (isset($_SESSION['usuario'])) {
                                 <input id="clave" type="password" name="clave">
                                 <label for="clave">Clave de acceso</label>
                             </div>
-                            
+
                             <button class="btn blue ancho-100 redondo">Entrar</button>
                             <p>
                                 <a href="admin.php" class="blue-text">Ingresa con una cuenta de Administrador</a>

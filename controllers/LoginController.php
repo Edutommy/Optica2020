@@ -33,6 +33,7 @@ class LoginController
         $model = new UsuarioModel;
         $array = $model->buscarUsuarioVendedor($this->rut, $this->clave);
 
+
         if (count($array) == 0) {
             $_SESSION['error'] = "Email o Contraseña Incorrectos";
             header("Location: ../index.php");

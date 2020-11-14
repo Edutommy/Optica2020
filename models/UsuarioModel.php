@@ -8,7 +8,7 @@ class UsuarioModel
 {
     public function buscarUsuarioVendedor($rut, $clave)
     {
-        $stm = Conexion::conector()->prepare("SELECT * FROM usuario WHERE rut=:A AND clave=:B AND rol='Vendedor'");
+        $stm = Conexion::conector()->prepare("SELECT * FROM usuario WHERE rut=:A AND clave=:B AND rol='Vendedor' AND estado='1'");
         $stm->bindParam(":A", $rut);
         $stm->bindParam(":B", md5($clave));
         $stm->execute();
