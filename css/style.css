@@ -4,19 +4,21 @@
     font-family: 'Fredoka One', cursive;
 }
 
-.ancho-100 {
-    width: 100%;
+html{
+    background: url(../img/fondo.jpg)no-repeat center center fixed;
+    height: 100%;
+    background-size: 100% 100%;
 }
 
-i {
-    margin-top: 10px;
+.ancho-100 {
+    width: 100%;
 }
 
 .redondo {
     border-radius: 30px;
 }
 
-.input-field input:focus + label + i {
+.input-field input:focus + label {
     color: rgb(63, 146, 255) !important;
 }
 
@@ -25,10 +27,10 @@ i {
     box-shadow: 0 1px 0 0 rgb(63, 146, 255) !important;
 }
 
-.material-icons.md-blue {
+.md-blue {
     color: rgba(63, 146, 255);
 }
-.material-icons.md-orange {
+.md-orange {
     color: rgb(255, 153, 0);
 }
 
@@ -38,8 +40,7 @@ i {
     border-radius: 10px;
 }
 
-body{
-    background-color: rgb(191, 245, 242);
-}
+
+
 
 

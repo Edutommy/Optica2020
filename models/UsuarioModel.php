@@ -6,12 +6,19 @@ require_once("Conexion.php");
 
 class UsuarioModel
 {
-    public function buscarUsuarioLogin($rut, $clave, $estado)
+    public function buscarUsuarioVendedor($rut, $clave)
     {
-        $stm = Conexion::conector()->prepare("SELECT * FROM usuario WHERE rut=:A AND clave=:B AND estado=1");
+        $stm = Conexion::conector()->prepare("SELECT * FROM usuario WHERE rut=:A AND clave=:B AND rol='Vendedor'");
         $stm->bindParam(":A", $rut);
         $stm->bindParam(":B", md5($clave));
-        //$stm->bindParam(":C", $estado);
+        $stm->execute();
+        return $stm->fetchAll(\PDO::FETCH_ASSOC);
+    }
+    public function buscarUsuarioAdmin($rut, $clave)
+    {
+        $stm = Conexion::conector()->prepare("SELECT * FROM usuario WHERE rut=:A AND clave=:B AND rol='Administrador'");
+        $stm->bindParam(":A", $rut);
+        $stm->bindParam(":B", md5($clave));
         $stm->execute();
         return $stm->fetchAll(\PDO::FETCH_ASSOC);
     }
@@ -42,12 +49,12 @@ class UsuarioModel
         return $stm->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function eliminarUsuario($rut)
+    /*public function eliminarUsuario($rut)
     {
         $stm = Conexion::conector()->prepare("DELETE FROM usuario WHERE rut=:A");
         $stm->bindParam(":A", $rut);
         return $stm->execute();
-    }
+    }*/
 
     public function editarUsuario($rut, $data)
     {

@@ -4,15 +4,13 @@ use models\UsuarioModel as UsuarioModel;
 
 session_start();
 require_once("../models/UsuarioModel.php");
-require_once("../models/ClienteModel.php");
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 
-
-if (isset($_SESSION['usuario'])) {
+if (isset($_SESSION['user'])) {
     $model = new UsuarioModel();
     $usuario = $model->getAllUsuarios();
 }
@@ -33,12 +31,12 @@ if (isset($_SESSION['usuario'])) {
 </head>
 
 <body>
-    <?php if (isset($_SESSION['usuario'])) { ?>
+    <?php if (isset($_SESSION['user'])) { ?>
         <div class="container">
             <div class="row">
                 <nav class="blue darken-3">
                     <div class="nav-wrapper">
-                        <a href="clientes.php" class="brand-logo">Vendedor: <?= $_SESSION['usuario']['nombre'] ?></a>
+                        <a href="clientes.php" class="brand-logo">Vendedor: <?= $_SESSION['user']['nombre'] ?></a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             <li class="active"><a href="clientes.php">Crear Cliente</a></li>
                             <li><a href="#">Buscar Receta</a></li>
@@ -118,7 +116,7 @@ if (isset($_SESSION['usuario'])) {
     <?php } else { ?>
 
         <h3 class="red-text">Error de Acceso</h3>
-        <p>
+        <p class="white-text">
             Usted no tiene permisos para estar aqui
             <br><br>
             <a href="../index.php">Home</a>

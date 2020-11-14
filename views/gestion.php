@@ -12,10 +12,11 @@ error_reporting(E_ALL);
 
 
 
-if (isset($_SESSION['usuario'])) {
+if (isset($_SESSION['user'])) {
     $model = new UsuarioModel();
     $usuario = $model->getAllUsuarios();
 }
+
 
 
 
@@ -35,12 +36,12 @@ if (isset($_SESSION['usuario'])) {
 </head>
 
 <body>
-    <?php if (isset($_SESSION['usuario'])) { ?>
+    <?php if (isset($_SESSION['user'])) { ?>
         <div class="container">
             <div class="row">
                 <nav class="blue darken-3">
                     <div class="nav-wrapper">
-                        <a href="#" class="brand-logo">Bienvenido <?= $_SESSION['usuario']['nombre'] ?></a>
+                        <a href="#" class="brand-logo">Bienvenido <?= $_SESSION['user']['nombre'] ?></a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             <li class="active"><a href="gestion.php">Gestión de Usuarios</a></li>
                             <li><a href="salir.php">Salir</a></li>
@@ -68,7 +69,7 @@ if (isset($_SESSION['usuario'])) {
                                             <option value="1">Habilitado</option>
                                             <option value="0">Bloqueado</option>
                                         </select>
-                                        <label>Materialize Select</label>
+                                        <label>Estado del Vendedor</label>
                                     </div>
                                     <button class="btn orange ancho-100 redondo">Editar Usuario</button>
                                 </form>
@@ -77,7 +78,7 @@ if (isset($_SESSION['usuario'])) {
                     <?php
                         unset($_SESSION['editar']);
                         unset($_SESSION['usuario']);
-                    } else if (isset($_SESSION['usuario'])) {
+                    } else {
                     ?>
                         <!-- NUEVO USUARIO -->
                         <div class="card">
@@ -136,10 +137,10 @@ if (isset($_SESSION['usuario'])) {
                                     </tr>
                                     <?php foreach ($usuario as $item) { ?>
                                         <tr>
-                                            <td> <?= $item["rut"] ?> </td>
-                                            <td> <?= $item['nombre'] ?> </td>
+                                            <td> <?= htmlspecialchars($item["rut"]) ?> </td>
+                                            <td> <?= htmlspecialchars($item["nombre"]) ?> </td>
                                             <?php if ($item['estado'] == 1) { ?>
-                                                <td class="blue-text"> <?= $item['estado'] = "Habilitado"; ?> </td>
+                                                <td class="blue-text"> <?=  $item['estado'] = "Habilitado"; ?> </td>
                                             <?php } else { ?>
                                                 <td class="red-text"> <?= $item['estado'] = "Bloqueado"; ?> </td>
                                             <?php } ?>

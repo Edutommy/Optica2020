@@ -20,7 +20,9 @@
             <div class="col l4 m4 s12">
                 <div class="card">
                     <div class="card-content">
-                        <i class="material-icons md-blue medium ">assignment_ind</i>
+                        <div class="card-image">
+                            <img src="img/fotologin.jpg">
+                        </div>
                         <h4 class="center blue-text accent-2">Acceso Admin</h4>
                     </div>
                     <div class="card-action">
@@ -42,7 +44,7 @@
                                 <input id="clave" type="password" name="clave">
                                 <label for="clave">Clave de acceso</label>
                             </div>
-                            <!--<input type="hidden" name="estado" value="1" />-->
+
                             <button class="btn blue ancho-100 redondo">Entrar</button>
                             <p>
                                 <a href="index.php" class="blue-text">Volver</a>

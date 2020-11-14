@@ -33,7 +33,9 @@ if (isset($_SESSION['usuario'])) {
             <div class="col l4 m4 s12">
                 <div class="card">
                     <div class="card-content">
-                        <i class="material-icons md-blue medium ">assignment_ind</i>
+                        <div class="card-image">
+                            <img src="img/fotologin.jpg">
+                        </div>
                         <h5 class="center blue-text accent-2">Acceso Usuarios</h5>
                     </div>
                     <div class="card-action">
@@ -54,7 +56,7 @@ if (isset($_SESSION['usuario'])) {
                                 <input id="clave" type="password" name="clave">
                                 <label for="clave">Clave de acceso</label>
                             </div>
-                            <input type="hidden" name="estado" value="1">
+                            
                             <button class="btn blue ancho-100 redondo">Entrar</button>
                             <p>
                                 <a href="admin.php" class="blue-text">Ingresa con una cuenta de Administrador</a>
