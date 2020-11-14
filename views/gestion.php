@@ -84,22 +84,22 @@ if (isset($_SESSION['user'])) {
                         <div class="card">
                             <div class="card-content">
                                 <i class="material-icons md-blue medium ">assignment_ind</i>
-                                <h4 class="center blue-text accent-2">Nuevo Usuario</h4>
+                                <h5 class="center blue-text accent-2">Nuevo Vendedor</h5>
                             </div>
                             <div class="card-action">
                                 <form action="../controllers/ControlInsert.php" method="POST">
                                     <div class="input-field">
                                         <input id="rut" type="text" name="rut">
-                                        <label for="rut">Rut de usuario</label>
+                                        <label for="rut">Rut de vendedor</label>
                                     </div>
                                     <div class="input-field">
                                         <input id="nombre" type="text" name="nombre">
-                                        <label for="nombre">Nombre del Usuario</label>
+                                        <label for="nombre">Nombre del Vendedor</label>
                                     </div>
                                     <input type="hidden" name="rol" value="vendedor">
                                     <input type="hidden" name="clave" value="123">
                                     <input type="hidden" name="estado" value="1">
-                                    <button class="btn blue ancho-100 redondo">Crear Usuario</button>
+                                    <button class="btn blue ancho-100 redondo">Crear Vendedor</button>
                                 </form>
                                 <p class="green-text">
                                     <?php
@@ -126,7 +126,7 @@ if (isset($_SESSION['user'])) {
                 <div class="col l8 m8 s12">
                     <div class="card">
                         <div class="card-content">
-                            <h4 class="center blue-text accent-2">Lista de Usuarios</h4>
+                            <h4 class="center blue-text accent-2">Lista de Vendedores</h4>
                             <form action="../controllers/ControlTabla.php" method="POST">
                                 <table class="blue-text accent-2">
                                     <tr>
