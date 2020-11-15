@@ -158,14 +158,21 @@ if (isset($_SESSION['user'])) {
                 </div>
             </div>
         </div>
-    <?php } else { ?>
+    <?php } else { header("Location: ../index.php")?>
 
-        <h3 class="red-text">Error de Acceso</h3>
-        <p>
-            Usted no tiene permisos para estar aqui
-            <br><br>
-            <a href="../index.php">Home</a>
-        </p>
+        <!--<div class="container">
+            <div class="card">
+                <h3 class="red-text">Error de Acceso</h3>
+                <p class="blue-text">
+                    Usted no tiene permisos para estar aqui
+                    <br><br>
+                    <button class="btn">
+                        <a class="white-text" href="../index.php">Inicia Sesión</a>
+                    </button>
+                </p>
+            </div>
+
+        </div>-->
 
     <?php } ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

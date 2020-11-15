@@ -17,6 +17,9 @@ html{
 .redondo {
     border-radius: 30px;
 }
+.cincuentaredondo {
+    border-radius: 50px;
+}
 
 .input-field input:focus + label {
     color: rgb(63, 146, 255) !important;
@@ -40,7 +43,15 @@ html{
     border-radius: 10px;
 }
 
+.bajar{
+    margin-top: 20px;
+}
 
+hr{
+    height: 2px;
+    background-color: black;
+    width: 95%;
+}
 
 
 

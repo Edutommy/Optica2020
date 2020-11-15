@@ -39,8 +39,8 @@ if (isset($_SESSION['user'])) {
                         <a href="clientes.php" class="brand-logo">Vendedor: <?= $_SESSION['user']['nombre'] ?></a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             <li class="active"><a href="clientes.php">Crear Cliente</a></li>
-                            <li><a href="#">Buscar Receta</a></li>
-                            <li><a href="#">Ingreso</a></li>
+                            <li><a href="buscarCliente.php">Buscar Receta</a></li>
+                            <li><a href="ingreso.php">Ingreso</a></li>
                             <li><a href="salir.php">Salir</a></li>
                         </ul>
                     </div>
@@ -56,15 +56,15 @@ if (isset($_SESSION['user'])) {
                                     if (isset($_SESSION['respuestaCli'])) {
                                         echo $_SESSION['respuestaCli'];
                                         unset($_SESSION['respuestaCli']);
-                                    } else 
+                                    } else
                                     ?>
                                 </p>
                                 <p class="red-text">
-                                    <?php 
-                                    if(isset($_SESSION['errorCli'])){
-                                        echo $_SESSION['errorCli'];
-                                        unset($_SESSION['errorCli']);
-                                    }
+                                    <?php
+                                if (isset($_SESSION['errorCli'])) {
+                                    echo $_SESSION['errorCli'];
+                                    unset($_SESSION['errorCli']);
+                                }
                                     ?>
                                 </p>
                                 <div class="input-field col l4">
@@ -113,14 +113,21 @@ if (isset($_SESSION['user'])) {
             </div>
         </div>
 
-    <?php } else { ?>
+    <?php } else { header("Location: ../index.php")?>
 
-        <h3 class="red-text">Error de Acceso</h3>
-        <p class="white-text">
-            Usted no tiene permisos para estar aqui
-            <br><br>
-            <a href="../index.php">Home</a>
-        </p>
+        <!--<div class="container">
+            <div class="card">
+                <h3 class="red-text">Error de Acceso</h3>
+                <p class="blue-text">
+                    Usted no tiene permisos para estar aqui
+                    <br><br>
+                    <button class="btn">
+                        <a class="white-text" href="../index.php">Inicia Sesión</a>
+                    </button>
+                </p>
+            </div>
+
+        </div>-->
 
     <?php } ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
