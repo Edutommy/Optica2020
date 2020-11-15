@@ -84,7 +84,7 @@ if (isset($_SESSION['user'])) {
                                 </div>
                                 <div class="input-field col l6">
                                     <i class="material-icons md-blue prefix">call</i>
-                                    <input id="clifono" type="text" name="clifono">
+                                    <input id="clifono" type="number" name="clifono">
                                     <label for="clifono">Teléfono o Celular</label>
                                 </div>
                                 <div class="input-field col l6">
