@@ -41,7 +41,7 @@ if (isset($_SESSION['user'])) {
             <div class="row">
                 <nav class="blue darken-3">
                     <div class="nav-wrapper">
-                        <a href="#" class="brand-logo">Bienvenido <?= $_SESSION['user']['nombre'] ?></a>
+                        <a href="gestion.php" class="brand-logo">Bienvenido <?= $_SESSION['user']['nombre'] ?></a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             <li class="active"><a href="gestion.php">Gestión de Usuarios</a></li>
                             <li><a href="salir.php">Salir</a></li>
