@@ -130,13 +130,13 @@ if (isset($_SESSION['user'])) {
                             </div>
                         </div>
 
-                        <div class="col l6">
+                        <div class="col l4">
                             <div class="input-field">
                                 <input id="rutmed" type="text" name="rutmed">
                                 <label for="rutmed">Rut del Medico</label>
                             </div>
                         </div>
-                        <div class="col l6">
+                        <div class="col l8">
                             <div class="input-field">
                                 <input id="nombremed" type="text" name="nombremed">
                                 <label for="nombremed">Nombre del Medico</label>
