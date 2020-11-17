@@ -36,7 +36,7 @@ class UsuarioModel
 
     public function getAllUsuarios()
     {
-        $stm = Conexion::conector()->prepare("SELECT * FROM usuario");
+        $stm = Conexion::conector()->prepare("SELECT * FROM usuario WHERE rol='vendedor'");
         $stm->execute();
         return $stm->fetchAll(\PDO::FETCH_ASSOC);
     }
