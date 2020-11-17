@@ -32,7 +32,7 @@ if (isset($_SESSION['user'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="shortcut icon" href="img/fotologin.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/fotologin.ico" type="image/x-icon">
     <title>Gestión de Usuarios</title>
 </head>
 
