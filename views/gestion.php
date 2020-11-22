@@ -42,13 +42,32 @@ if (isset($_SESSION['user'])) {
             <div class="row">
                 <nav class="blue darken-3">
                     <div class="nav-wrapper">
-                        <a href="gestion.php" class="brand-logo">Bienvenido <?= $_SESSION['user']['nombre'] ?></a>
+                        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                        <a href="gestion.php" class="brand-logo"><?= $_SESSION['user']['rol']?></a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             <li class="active"><a href="gestion.php">Gestión de Usuarios</a></li>
                             <li><a href="salir.php">Salir</a></li>
                         </ul>
+
                     </div>
+
                 </nav>
+                <!-- NAV MOVIL -->
+                <ul id="slide-out" class="sidenav blue accent-2">
+                    <li>
+                        <div class="user-view">
+                            <div class="background">
+                                <img src="https://www.designyourway.net/blog/wp-content/uploads/2016/07/Dark-wallpaper-desktop-background-30-700x438.jpg">
+                            </div>
+                            <a href="gestion.php"><img class="circle" src="../img/perfilnav.jpg"></a>
+                            <a href="gestion.php" class="brand-logo white-text"><?= $_SESSION['user']['nombre'] ?></a>
+                        </div>
+                    </li>
+                    <li class="active"><a class="white-text" href="gestion.php">Gestión de Usuarios<i class="material-icons white-text small ">assignment_ind</i></a></li>
+                    <li><a class="white-text" href="salir.php">Salir<i class="material-icons white-text small ">exit_to_app</i></a></li>
+                </ul>
+
+                <!-- FIN DE NAV -->
                 <div class="col l4 m4 s12">
                     <!-- EDITAR USUARIO -->
                     <?php if (isset($_SESSION['editar'])) { ?>
@@ -97,8 +116,8 @@ if (isset($_SESSION['user'])) {
                                         <input id="nombre" type="text" name="nombre">
                                         <label for="nombre">Nombre del Vendedor</label>
                                     </div>
-                                    <input type="hidden" name="rol" value="vendedor">
-                                    <input type="hidden" name="clave" value="123">
+                                    <input type="hidden" name="rol" value="Vendedor">
+                                    <input type="hidden" name="clave" value="123456">
                                     <input type="hidden" name="estado" value="1">
                                     <button class="btn blue ancho-100 redondo">Crear Vendedor</button>
                                 </form>
@@ -141,7 +160,7 @@ if (isset($_SESSION['user'])) {
                                             <td> <?= htmlspecialchars($item["rut"]) ?> </td>
                                             <td> <?= htmlspecialchars($item["nombre"]) ?> </td>
                                             <?php if ($item['estado'] == 1) { ?>
-                                                <td class="blue-text"> <?=  $item['estado'] = "Habilitado"; ?> </td>
+                                                <td class="blue-text"> <?= $item['estado'] = "Habilitado"; ?> </td>
                                             <?php } else { ?>
                                                 <td class="red-text"> <?= $item['estado'] = "Bloqueado"; ?> </td>
                                             <?php } ?>
@@ -159,28 +178,17 @@ if (isset($_SESSION['user'])) {
                 </div>
             </div>
         </div>
-    <?php } else { header("Location: ../index.php")?>
-
-        <!--<div class="container">
-            <div class="card">
-                <h3 class="red-text">Error de Acceso</h3>
-                <p class="blue-text">
-                    Usted no tiene permisos para estar aqui
-                    <br><br>
-                    <button class="btn">
-                        <a class="white-text" href="../index.php">Inicia Sesión</a>
-                    </button>
-                </p>
-            </div>
-
-        </div>-->
-
+    <?php } else {
+        header("Location: ../index.php") ?>
     <?php } ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('select');
             var instances = M.FormSelect.init(elems);
+
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems);
         });
     </script>
 

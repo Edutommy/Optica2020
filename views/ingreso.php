@@ -38,15 +38,34 @@ if (isset($_SESSION['user'])) {
             <div class="row">
                 <nav class="blue darken-3">
                     <div class="nav-wrapper">
-                        <a href="clientes.php" class="brand-logo">Vendedor: <?= $_SESSION['user']['nombre'] ?></a>
+                        <a href="ingreso.php" class="brand-logo"><?= $_SESSION['user']['rol'] ?>: <?= $_SESSION['user']['nombre'] ?></a>
+                        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             <li><a href="clientes.php">Crear Cliente</a></li>
                             <li><a href="buscarCliente.php">Buscar Receta</a></li>
                             <li class="active"><a href="ingreso.php">Ingreso</a></li>
-                            <li><a href="salir.php">Salir</a></li>
+                            <li><a href="salir.php"><i class="material-icons white-text small ">exit_to_app</i></a></li>
                         </ul>
                     </div>
                 </nav>
+                <!-- NAV MOVIL -->
+                <ul id="slide-out" class="sidenav blue accent-2">
+                    <li>
+                        <div class="user-view">
+                            <div class="background">
+                                <img src="https://www.designyourway.net/blog/wp-content/uploads/2016/07/Dark-wallpaper-desktop-background-30-700x438.jpg">
+                            </div>
+                            <a href="ingreso.php"><img class="circle" src="../img/perfilnav.jpg"></a>
+                            <a href="ingreso.php" class="brand-logo white-text"><?= $_SESSION['user']['nombre'] ?></a>
+                        </div>
+                    </li>
+                    <li><a class="white-text" href="clientes.php">Crear Cliente<i class="material-icons white-text small ">add_circle</i></a></li>
+                    <li class="active"><a class="white-text" href="buscarCliente.php">Buscar Receta<i class="material-icons white-text small ">search</i></a></li>
+                    <li><a class="white-text" href="ingreso.php">Ingreso de Receta<i class="material-icons white-text small ">create</i></a></li>
+                    <li><a class="white-text" href="salir.php">Salir<i class="material-icons white-text small ">exit_to_app</i></a></li>
+                </ul>
+
+                <!-- FIN DE NAV -->
                 <br>
                 <div class="col l1 m4 s12"></div>
                 <div class="col l10 m4 s12 white redondo">
@@ -165,7 +184,8 @@ if (isset($_SESSION['user'])) {
                 </div>
             </div>
         </div>
-    <?php } else { header("Location: ../index.php")?>
+    <?php } else {
+        header("Location: ../index.php") ?>
     <?php } ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
@@ -187,6 +207,9 @@ if (isset($_SESSION['user'])) {
                     done: 'Aceptar'
                 }
             });
+
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems);
         });
     </script>
 </body>
