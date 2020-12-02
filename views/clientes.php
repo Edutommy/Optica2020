@@ -37,7 +37,7 @@ if (isset($_SESSION['user'])) {
             <div class="row">
                 <nav class="blue darken-3">
                     <div class="nav-wrapper">
-                        <a href="clientes.php" class="brand-logo"><?= $_SESSION['user']['rol'] ?></a>
+                        <a href="clientes.php" class="brand-logo"><?= $_SESSION['user']['rol'] ?>: <?= $_SESSION['user']['nombre'] ?></a>
                         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             <li class="active"><a href="clientes.php">Crear Cliente</a></li>

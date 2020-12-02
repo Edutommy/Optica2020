@@ -67,18 +67,20 @@ if (isset($_SESSION['user'])) {
                 <!-- FIN DE NAV -->
                 <div class="col l2 m4 s12"></div>
                 <div class="col l8 m4 s12">
-                    <div class="card">
-                        <div class="card-content">
-                            <h6 class="blue-text">Buscar Receta</h6>
-                            <br><br>
-                            <form action="#" method="POST">
-                                <input class="col l3" type="text" name="rutbus" placeholder="Rut">
-                                <button class="btn blue redondo col l2">BUSCAR</button>
-                                <div class="input-field col l2"></div>
-                                <input class="col l3 validate datepicker" type="text" name="fechabus" placeholder="Fecha">
-                                <button class="btn blue redondo col l2">BUSCAR</button>
-                            </form>
-                            <form action="#" method="POST">
+                    <div class="row">
+                        <div class="card">
+                            <div id="app" class="card-panel">
+                                <h6 class="blue-text">Buscar Receta</h6>
+                                <br><br>
+                                <form @submit.prevent="buscar">
+                                    <input class="col l3" type="text" v-model="rut" placeholder="Rut">
+                                    <button class="btn blue redondo col l2">BUSCAR</button>
+                                    <!--<div class="input-field col l2"></div>
+                                <input class="col l3 validate datepicker" type="text" v-model="fecha" name="fechabus" placeholder="Fecha">
+                                <button class="btn blue redondo col l2">BUSCAR</button>-->
+                                </form>
+                                {{rut}}
+                                <!--<form action="#" method="POST">
                                 <table class="blue-text accent-2">
                                     <tr>
                                         <th>Tipo Lente</th>
@@ -86,7 +88,8 @@ if (isset($_SESSION['user'])) {
                                         <th>Actions</th>
                                     </tr>
                                 </table>
-                            </form>
+                            </form>-->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -98,6 +101,7 @@ if (isset($_SESSION['user'])) {
     <?php } ?>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.datepicker');
@@ -120,6 +124,7 @@ if (isset($_SESSION['user'])) {
             var instances = M.Sidenav.init(elems);
         });
     </script>
+    <script src="../js/buscar_cliente.js"></script>
 </body>
 
 </html>

@@ -17,4 +17,12 @@ class ClienteModel
         $stm->bindParam(":F", $dataCli['cliemail']);
         return $stm->execute();
     }
+    
+    public function buscarClientes($rut)
+    {
+        $stm = Conexion::conector()->prepare("SELECT * FROM cliente WHERE rut_cliente=:A");
+        $stm->bindParam(":A", $rut);
+        $stm->execute();
+        return $stm->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }

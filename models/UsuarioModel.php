@@ -49,13 +49,6 @@ class UsuarioModel
         return $stm->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    /*public function eliminarUsuario($rut)
-    {
-        $stm = Conexion::conector()->prepare("DELETE FROM usuario WHERE rut=:A");
-        $stm->bindParam(":A", $rut);
-        return $stm->execute();
-    }*/
-
     public function editarUsuario($rut, $data)
     {
         $stm = Conexion::conector()->prepare("UPDATE usuario SET nombre=:A, estado=:B WHERE rut=:E");
