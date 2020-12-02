@@ -1,7 +1,7 @@
-var app = new Vue({
+new Vue({
     el:'#app',
     data:{
-        rut="",
+        rut=''
     },
     methods:{
         buscar: async function(){
