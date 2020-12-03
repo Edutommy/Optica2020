@@ -18,17 +18,19 @@ class BuscarCliente
 
     public function buscarCliente()
     {
-        $modelo = new ClienteModel;
-        $arr = $modelo->buscarClientes($this->rut);
+        if (isset($_SESSION['user'])) {
+            $modelo = new ClienteModel;
+            $arr = $modelo->buscarClientes($this->rut);
 
-        if(count($arr) == 1){
-            echo json_encode($arr[0]);
+            if (count($arr) == 1) {
+                echo json_encode($arr[0]);
+            } else {
+                echo json_encode(null);
+            }
         } else {
-            json_encode(["msg"=>'null']);
+            echo json_encode(["msg" => 'acceso denegado']);
         }
-
     }
-
 }
 
 $obj = new BuscarCliente();

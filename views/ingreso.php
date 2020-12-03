@@ -43,7 +43,7 @@ if (isset($_SESSION['user'])) {
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             <li><a href="clientes.php">Crear Cliente</a></li>
                             <li><a href="buscarCliente.php">Buscar Receta</a></li>
-                            <li class="active"><a href="ingreso.php">Ingreso</a></li>
+                            <li class="active"><a href="ingreso.php">Ingreso de Receta</a></li>
                             <li><a href="salir.php"><i class="material-icons white-text small ">exit_to_app</i></a></li>
                         </ul>
                     </div>
@@ -71,13 +71,43 @@ if (isset($_SESSION['user'])) {
                 <div class="col l10 m4 s12 white redondo">
                     <h6 class="blue-text center">Ingresar una Receta</h6>
                     <br><br>
-                    <form action="#" method="POST">
-                        <input type="text" class="col l3" placeholder="Rut" name="ruting">
-                        <button class="btn blue redondo col l2">BUSCAR</button>
-                        <div class="col l7"></div>
-                    </form>
-                    <br><br><br>
-                    <hr>
+                    <div class="row" id="app">
+                        <div class="col l6">
+                            <form @submit.prevent="buscar">
+                                <input type="text" class="col l6" placeholder="Rut" v-model="rut">
+                                <button class="btn blue redondo col l4">BUSCAR</button>
+                            </form>
+                        </div>
+                        <div class="col l6 m12 s12">
+                            <p>
+                                <ul v-if="esta == true" class="collection">
+                                    <li class="collection-item">{{cliente.nombre_cliente}}</li>
+                                    <li class="collection-item">{{cliente.direccion_cliente}}</li>
+                                    <li class="collection-item">{{cliente.telefono_cliente}}</li>
+                                    <li class="collection-item">{{cliente.email_cliente}}</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row" id="cargaCBO">
+                        <div class="col l6">
+                            <Select v-model="id_material_cristal" class="browser-default">
+                                <option v-for="m in materiales" :value="m.id_material_cristal">
+                                    {{m.material_cristal}}
+                                </option>
+                            </Select>
+                            <Select v-model="id_tipo_cristal" class="browser-default">
+                                <option v-for="t in tipos" :value="t.id_tipo_cristal">
+                                    {{t.tipo_cristal}}
+                                </option>
+                            </Select>
+                            <Select class="browser-default" v-model="id_armazon">
+                                <option v-for="a in armazones" :value="a.id_armazon">
+                                    {{a.nombre_armazon}}
+                                </option>
+                            </Select>
+                        </div>
+                    </div>
                     <form action="#" method="POST">
                         <div class="col l6 m6 s6 blue-text">
                             <p>Tipo Lente:</p>
@@ -89,25 +119,6 @@ if (isset($_SESSION['user'])) {
                                 <input type="checkbox" name="xy" value="2" />
                                 <span>Cerca</span>
                             </label>
-                            <Select name="tipo" id="tipo">
-                                <option value="#">Tipo Cristal</option>
-                                <option value="MONO">Monofocal</option>
-                                <option value="BI">Bifocal</option>
-                                <option value="MULTI">Multifocal</option>
-                            </Select>
-                            <Select name="material" id="material">
-                                <option value="#">Material de Cristal</option>
-                                <option value="ORG">Orgánico</option>
-                                <option value="POLI">Policarbonato</option>
-                                <option value="MIN">Mineral</option>
-                                <option value="ALTO">Alto Indice</option>
-                            </Select>
-                            <Select name="armazon" id="armazon">
-                                <option value="#">Tipo Armazón</option>
-                                <option value="INTER">Intermedio</option>
-                                <option value="GAMA">Gama Alta</option>
-                                <option value="ECO">Económico</option>
-                            </Select>
                         </div>
                         <div class="col l3 center blue-text">
                             <p>Ojo Izquierdo</p>
@@ -121,8 +132,7 @@ if (isset($_SESSION['user'])) {
                             <input type="text" placeholder="Cilindro" name="cilder">
                             <input type="text" placeholder="Eje" name="ejeder">
                         </div>
-                        <br><br><br><br><br><br><br><br><br><br><br>
-                        <hr>
+                        <br><br><br><br><br><br><br><br><br><br><br><br>
                         <div class="col l6">
                             <div class="input-field">
                                 <input id="prisma" type="text" name="prisma">
@@ -188,6 +198,9 @@ if (isset($_SESSION['user'])) {
         header("Location: ../index.php") ?>
     <?php } ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="../js/buscar_cliente.js"></script>
+    <script src="../js/combobox.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('select');
