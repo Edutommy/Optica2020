@@ -42,7 +42,7 @@ if (isset($_SESSION['user'])) {
                         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             <li><a href="clientes.php">Crear Cliente</a></li>
-                            <li><a href="buscarCliente.php">Buscar Receta</a></li>
+                            <li><a href="buscarReceta.php">Buscar Receta</a></li>
                             <li class="active"><a href="ingreso.php">Ingreso de Receta</a></li>
                             <li><a href="salir.php"><i class="material-icons white-text small ">exit_to_app</i></a></li>
                         </ul>
@@ -60,7 +60,7 @@ if (isset($_SESSION['user'])) {
                         </div>
                     </li>
                     <li><a class="white-text" href="clientes.php">Crear Cliente<i class="material-icons white-text small ">add_circle</i></a></li>
-                    <li class="active"><a class="white-text" href="buscarCliente.php">Buscar Receta<i class="material-icons white-text small ">search</i></a></li>
+                    <li class="active"><a class="white-text" href="buscarReceta.php">Buscar Receta<i class="material-icons white-text small ">search</i></a></li>
                     <li><a class="white-text" href="ingreso.php">Ingreso de Receta<i class="material-icons white-text small ">create</i></a></li>
                     <li><a class="white-text" href="salir.php">Salir<i class="material-icons white-text small ">exit_to_app</i></a></li>
                 </ul>
