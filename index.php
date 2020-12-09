@@ -38,7 +38,7 @@ if (isset($_SESSION['usuario'])) {
                         <div class="card-image">
                             <img src="img/fotologin.jpg">
                         </div>
-                        <h5 class="center blue-text accent-2">Acceso</h5>
+                        <h5 class="center blue-text accent-2">Acceso Vendedores</h5>
                     </div>
                     <div class="card-action">
                         <form action="controllers/LoginController.php" method="POST">
