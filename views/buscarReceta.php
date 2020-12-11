@@ -37,7 +37,7 @@ if (isset($_SESSION['user'])) {
             <div class="row">
                 <nav class="blue darken-3">
                     <div class="nav-wrapper">
-                        <a href="buscarCliente.php" class="brand-logo"><?= $_SESSION['user']['rol'] ?>: <?= $_SESSION['user']['nombre'] ?></a>
+                        <a href="buscarReceta.php" class="brand-logo"><?= $_SESSION['user']['rol'] ?>: <?= $_SESSION['user']['nombre'] ?></a>
                         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             <li><a href="clientes.php">Crear Cliente</a></li>
@@ -54,8 +54,8 @@ if (isset($_SESSION['user'])) {
                             <div class="background">
                                 <img src="https://www.designyourway.net/blog/wp-content/uploads/2016/07/Dark-wallpaper-desktop-background-30-700x438.jpg">
                             </div>
-                            <a href="buscarCliente.php"><img class="circle" src="../img/perfilnav.jpg"></a>
-                            <a href="buscarCliente.php" class="brand-logo white-text"><?= $_SESSION['user']['nombre'] ?></a>
+                            <a href="buscarReceta.php"><img class="circle" src="../img/perfilnav.jpg"></a>
+                            <a href="buscarReceta.php" class="brand-logo white-text"><?= $_SESSION['user']['nombre'] ?></a>
                         </div>
                     </li>
                     <li><a class="white-text" href="clientes.php">Crear Cliente<i class="material-icons white-text small ">add_circle</i></a></li>
@@ -65,35 +65,76 @@ if (isset($_SESSION['user'])) {
                 </ul>
 
                 <!-- FIN DE NAV -->
-                
+
                 <div class="col l12 m4 s12">
-                    <div id="app" class="container">
-                        <div class="row">
-                            <div class="col l12">
-                                <div class="card-panel">
-                                    <h4>Buscar Receta</h4>
-                                    <form @submit.prevent="buscarRut">
-                                        <input type="text" v-model="rut" placeholder="Rut Cliente">
-                                        <button class="btn-small">Buscar</button>
-                                    </form>
-                                    <table>
-                                        <tr>
-                                            <th>Tipo de Lente</th>
-                                            <th>Cliente</th>
-                                            <th>Fecha</th>
-                                            <th></th>
-                                        </tr>
-                                        <tr v-for="r in recetas">
-                                            <td>{{r.tipo_lente}}</td>
-                                            <td>{{r.nombre_cliente}}</td>
-                                            <td>{{r.fecha_entrega}}</td>
-                                            <td>
-                                                <button class="btn-small blue">Detalle</button>
-                                            </td>
-                                        </tr>
-                                    </table>
+                    <div class="card" id="app">
+                        <div class="card-content">
+                            <h4>Buscar Receta</h4>
+                            <div class="col l5">
+                                <form @submit.prevent="buscarRut">
+                                    <input type="text" v-model="rut" placeholder="Rut Cliente">
+                                    <button class="btn-small redondo blue">Buscar</button>
+                                </form>
+                            </div>
+                            <div class="col l2"></div>
+                            <div class="col l5">
+                                <form @submit.prevent="buscarFecha">
+                                    <input type="text" v-model="fecha" placeholder="2020-05-14">
+                                    <button class="btn-small redondo blue">Buscar</button>
+                                </form>
+                            </div>
+                            <table>
+                                <tr>
+                                    <th>Tipo de Lente</th>
+                                    <th>Cliente</th>
+                                    <th>Fecha</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                <tr v-for="r in recetas">
+                                    <td>{{r.tipo_lente}}</td>
+                                    <td>{{r.nombre_cliente}}</td>
+                                    <td>{{r.fecha_entrega}}</td>
+                                    <td>
+                                        <button @click="abrirModal(r)" class="btn-small blue redondo">Detalle</button>
+                                    </td>
+                                    <td>
+                                        <img height="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/833px-PDF_file_icon.svg.png" alt="">
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- MODAL -->
+                            <div id="modal1" class="modal">
+                                <div class="modal-content">
+                                    <h5>Detalle de la Receta N°: {{receta.id}}</h5>
+                                    <hr><br>
+                                    <div class="row">
+                                        <div class="col l6">
+                                            Observaciones: {{receta.observacion}}
+                                        </div>
+                                        <div class="col l6">
+                                            Precio: ${{receta.precio}}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col l6">
+                                            Vendedor: {{receta.nombre_vendedor}}
+                                        </div>
+                                        <div class="col l6">
+                                            Cliente: {{receta.nombre_cliente}}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col l12">
+                                            RUT: {{receta.rut_cliente}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">CERRAR</a>
                                 </div>
                             </div>
+                            <!-- FIN MODAL -->
                         </div>
                     </div>
                 </div>
@@ -127,6 +168,10 @@ if (isset($_SESSION['user'])) {
 
             var elems = document.querySelectorAll('.sidenav');
             var instances = M.Sidenav.init(elems);
+
+            //MODAL
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems);
         });
     </script>
 </body>
