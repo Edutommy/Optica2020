@@ -79,7 +79,7 @@ if (isset($_SESSION['user'])) {
                             <div class="col l2"></div>
                             <div class="col l5">
                                 <form @submit.prevent="buscarFecha">
-                                    <input type="text" v-model="fecha" placeholder="2020-05-14">
+                                    <input type="date" v-model="fecha" placeholder="2020-05-14">
                                     <button class="btn-small redondo blue">Buscar</button>
                                 </form>
                             </div>
