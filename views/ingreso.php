@@ -89,108 +89,104 @@ if (isset($_SESSION['user'])) {
                             </p>
                         </div>
                     </div>
-                    <div class="row" id="cargaCBO">
-                        <div class="col l6">
-                            <Select v-model="id_material_cristal" class="browser-default">
-                                <option v-for="m in materiales" :value="m.id_material_cristal">
-                                    {{m.material_cristal}}
-                                </option>
-                            </Select>
-                            <Select v-model="id_tipo_cristal" class="browser-default">
-                                <option v-for="t in tipos" :value="t.id_tipo_cristal">
-                                    {{t.tipo_cristal}}
-                                </option>
-                            </Select>
-                            <Select class="browser-default" v-model="id_armazon">
-                                <option v-for="a in armazones" :value="a.id_armazon">
-                                    {{a.nombre_armazon}}
-                                </option>
-                            </Select>
+                    <div class="col l6 m6 s6 blue-text">
+                        <p>Tipo Lente:</p>
+                        <label>
+                            <input type="checkbox" name="xx" value="1" />
+                            <span>Lejos</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="xy" value="2" />
+                            <span>Cerca</span>
+                        </label>
+                    </div>
+                    <div class="col l3 center blue-text">
+                        <p>Ojo Izquierdo</p>
+                        <input type="text" placeholder="Esfera" name="esfeizq">
+                        <input type="text" placeholder="Cilindro" name="cilizq">
+                        <input type="text" placeholder="Eje" name="ejeizq">
+                    </div>
+                    <div class="col l3 center blue-text">
+                        <p>Ojo Derecho</p>
+                        <input type="text" placeholder="Esfera" name="esfeder">
+                        <input type="text" placeholder="Cilindro" name="cilder">
+                        <input type="text" placeholder="Eje" name="ejeder">
+                    </div>
+                    <div class="col l6" id="cargaCBO">
+                        <Select v-model="id_material_cristal" class="browser-default">
+                            <option v-for="m in materiales" :value="m.id_material_cristal">
+                                {{m.material_cristal}}
+                            </option>
+                        </Select>
+                        <Select v-model="id_tipo_cristal" class="browser-default">
+                            <option v-for="t in tipos" :value="t.id_tipo_cristal">
+                                {{t.tipo_cristal}}
+                            </option>
+                        </Select>
+                        <Select class="browser-default" v-model="id_armazon">
+                            <option v-for="a in armazones" :value="a.id_armazon">
+                                {{a.nombre_armazon}}
+                            </option>
+                        </Select>
+                    </div>
+                    <br><br><br><br><br><br><br><br><br><br><br><br>
+                    <div class="col l6">
+                        <div class="input-field">
+                            <input id="prisma" type="text" name="prisma">
+                            <label for="prisma">Prisma</label>
                         </div>
                     </div>
-                    <form action="#" method="POST">
-                        <div class="col l6 m6 s6 blue-text">
-                            <p>Tipo Lente:</p>
-                            <label>
-                                <input type="checkbox" name="xx" value="1" />
-                                <span>Lejos</span>
-                            </label>
-                            <label>
-                                <input type="checkbox" name="xy" value="2" />
-                                <span>Cerca</span>
-                            </label>
+                    <div class="col l6">
+                        <div class="input-field">
+                            <input id="pupilar" type="text" name="pupilar">
+                            <label for="pupilar">Distancia Pupilar</label>
                         </div>
-                        <div class="col l3 center blue-text">
-                            <p>Ojo Izquierdo</p>
-                            <input type="text" placeholder="Esfera" name="esfeizq">
-                            <input type="text" placeholder="Cilindro" name="cilizq">
-                            <input type="text" placeholder="Eje" name="ejeizq">
+                    </div>
+                    <div class="col l6">
+                        <div class="input-field">
+                            <i class="material-icons md-blue prefix">date_range</i>
+                            <input id="fechaentrega" type="text" class="validate datepicker" name="fechaentrega">
+                            <label for="fechaentrega">Fecha de entrega</label>
                         </div>
-                        <div class="col l3 center blue-text">
-                            <p>Ojo Derecho</p>
-                            <input type="text" placeholder="Esfera" name="esfeder">
-                            <input type="text" placeholder="Cilindro" name="cilder">
-                            <input type="text" placeholder="Eje" name="ejeder">
+                    </div>
+                    <div class="col l6">
+                        <div class="input-field">
+                            <i class="material-icons md-blue prefix">date_range</i>
+                            <input id="fecharetiro" type="text" class="validate datepicker" name="fecharetiro">
+                            <label for="fecharetiro">Fecha de retiro</label>
                         </div>
-                        <br><br><br><br><br><br><br><br><br><br><br><br>
-                        <div class="col l6">
-                            <div class="input-field">
-                                <input id="prisma" type="text" name="prisma">
-                                <label for="prisma">Prisma</label>
-                            </div>
-                        </div>
-                        <div class="col l6">
-                            <div class="input-field">
-                                <input id="pupilar" type="text" name="pupilar">
-                                <label for="pupilar">Distancia Pupilar</label>
-                            </div>
-                        </div>
-                        <div class="col l6">
-                            <div class="input-field">
-                                <i class="material-icons md-blue prefix">date_range</i>
-                                <input id="fechaentrega" type="text" class="validate datepicker" name="fechaentrega">
-                                <label for="fechaentrega">Fecha de entrega</label>
-                            </div>
-                        </div>
-                        <div class="col l6">
-                            <div class="input-field">
-                                <i class="material-icons md-blue prefix">date_range</i>
-                                <input id="fecharetiro" type="text" class="validate datepicker" name="fecharetiro">
-                                <label for="fecharetiro">Fecha de retiro</label>
-                            </div>
-                        </div>
+                    </div>
 
-                        <div class="col l4">
-                            <div class="input-field">
-                                <input id="rutmed" type="text" name="rutmed">
-                                <label for="rutmed">Rut del Medico</label>
-                            </div>
+                    <div class="col l4">
+                        <div class="input-field">
+                            <input id="rutmed" type="text" name="rutmed">
+                            <label for="rutmed">Rut del Medico</label>
                         </div>
-                        <div class="col l8">
-                            <div class="input-field">
-                                <input id="nombremed" type="text" name="nombremed">
-                                <label for="nombremed">Nombre del Medico</label>
-                            </div>
+                    </div>
+                    <div class="col l8">
+                        <div class="input-field">
+                            <input id="nombremed" type="text" name="nombremed">
+                            <label for="nombremed">Nombre del Medico</label>
                         </div>
-                        <div class="col l12">
-                            <div class="input-field">
-                                <input id="obs" type="text" name="obs">
-                                <label for="obs">Observaciones</label>
-                            </div>
+                    </div>
+                    <div class="col l12">
+                        <div class="input-field">
+                            <input id="obs" type="text" name="obs">
+                            <label for="obs">Observaciones</label>
                         </div>
-                        <div class="col l4"></div>
-                        <div class="col l4">
-                            <div class="input-field">
-                                <input id="precio" type="number" name="precio">
-                                <label for="precio">Valor Lente</label>
-                            </div>
+                    </div>
+                    <div class="col l4"></div>
+                    <div class="col l4">
+                        <div class="input-field">
+                            <input id="precio" type="number" name="precio">
+                            <label for="precio">Valor Lente</label>
                         </div>
-                        <div class="col l4">
-                            <div class="input-field">
-                                <button class="btn ancho-100 redondo blue">Crear Receta</button>
-                            </div>
+                    </div>
+                    <div class="col l4">
+                        <div class="input-field">
+                            <button class="btn ancho-100 redondo blue">Crear Receta</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
